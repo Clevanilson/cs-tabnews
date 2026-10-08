@@ -1,0 +1,21 @@
+services:
+  database:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+  backend:
+    build: .
+    ports:
+      - 3000:3000
+    depends_on:
+      - database
+    environment:
+      DB_HOST: database
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DATABASE_URL: postgres://postgres:postgres@database:5432/postgres
+    volumes:
+      - .:/app
+      - /app/node_modules
