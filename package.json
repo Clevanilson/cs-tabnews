@@ -7,18 +7,23 @@
     "build": "next build",
     "start": "next start",
     "lint": "biome check",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "test": "vitest watch"
   },
   "dependencies": {
     "next": "16.3.4",
+    "pg": "8.23.1",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.2",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "typescript": "^5"
+    "@types/node": "20",
+    "@types/pg": "^8.23.1",
+    "@types/react": "19",
+    "@types/react-dom": "19",
+    "typescript": "5",
+    "vite-tsconfig-paths": "6.1.1",
+    "vitest": "3.2.4"
   }
 }
