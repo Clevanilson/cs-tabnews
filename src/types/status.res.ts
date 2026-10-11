@@ -6,4 +6,5 @@ export type StatusRes = {
 type StatusResDatabase = {
   version: string;
   maxConnections: number;
+  opendConnections: number;
 };

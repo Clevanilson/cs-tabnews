@@ -7,11 +7,13 @@ export async function GET() {
   );
   const { version, max_connections } = result[0];
   const versionNumber = (version as string).match(/\d+\.\d+/)?.[0] ?? version;
+  const opendConnectionsRows = await query("SELECT * FROM pg_stat_activity WHERE datname = 'postgres';")
   const response: StatusRes = {
     updatedAt: new Date().toISOString(),
     database: {
       maxConnections: +max_connections,
       version: versionNumber,
+      opendConnections: opendConnectionsRows.length
     }
   }
   return new Response(

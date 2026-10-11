@@ -5,6 +5,7 @@ export async function query(
   args: (number | string | boolean)[] = [],
 ) {
   const client = new Client({
+    database: process.env.DB_NAME,
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,

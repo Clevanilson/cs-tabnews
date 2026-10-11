@@ -15,6 +15,7 @@ describe("GET /api/v1/status", () => {
       updatedAt: expect.any(String),
       database: {
         maxConnections: 100,
+        opendConnections: 1,
         version: "17.11",
       },
     });

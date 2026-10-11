@@ -3,6 +3,7 @@ services:
     image: postgres:17-alpine
     environment:
       POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
     ports:
       - 5432:5432
   backend:
@@ -12,6 +13,7 @@ services:
     depends_on:
       - database
     environment:
+      DB_NAME: postgres
       DB_HOST: database
       DB_USER: postgres
       DB_PASSWORD: postgres
