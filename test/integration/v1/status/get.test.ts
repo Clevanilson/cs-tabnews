@@ -5,8 +5,6 @@ import { afterEach, beforeEach } from "node:test";
 import { StatusRes } from "@/types/status.res";
 
 describe("GET /api/v1/status", () => {
-
-
   test("With success", async () => {
     const httpClient = new FetchAdapter(BASE_URL);
     const response = await httpClient.get<StatusRes>("/api/v1/status");
@@ -19,6 +17,6 @@ describe("GET /api/v1/status", () => {
         version: "17.11",
       },
     });
-    new Date(response.body.updatedAt).toISOString()
+    new Date(response.body.updatedAt).toISOString();
   });
 });
