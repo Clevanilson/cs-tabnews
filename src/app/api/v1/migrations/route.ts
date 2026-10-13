@@ -5,11 +5,19 @@ import { runner } from 'node-pg-migrate'
 import { Client } from "pg";
 
 export async function GET() {
+  return runMigrations(false)
+}
+
+export async function POST() {
+  return runMigrations(true);
+}
+
+async function runMigrations(dryRun = false): Promise<Response> {
   const response = await runner({
     databaseUrl: DB_CONNECTION_STRING,
     dir: join('src', 'migrations'),
     direction: 'up',
-    dryRun: true,
+    dryRun,
     verbose: true,
     migrationsTable: 'migrations'
   })
