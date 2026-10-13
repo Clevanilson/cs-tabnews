@@ -17,7 +17,9 @@ services:
       DB_HOST: database
       DB_USER: postgres
       DB_PASSWORD: postgres
+      DB_PORT: 5432
       DATABASE_URL: postgres://postgres:postgres@database:5432/postgres
     volumes:
       - .:/app
       - /app/node_modules
+    command: sh -c "npm install && npm run dev"

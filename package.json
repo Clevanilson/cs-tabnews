@@ -9,11 +9,13 @@
     "lint": "biome check",
     "format": "biome format --write",
     "test": "vitest watch",
+    "migrations:create": "node-pg-migrate -m src/migrations create",
     "services:up": "docker compose up -d",
     "services:down": "docker compose down"
   },
   "dependencies": {
     "next": "16.3.4",
+    "node-pg-migrate": "9.0.0",
     "pg": "8.23.1",
     "react": "19.2.8",
     "react-dom": "19.2.8"
@@ -21,7 +23,7 @@
   "devDependencies": {
     "@biomejs/biome": "2.4.2",
     "@types/node": "20",
-    "@types/pg": "^8.23.1",
+    "@types/pg": "8.23.1",
     "@types/react": "19",
     "@types/react-dom": "19",
     "typescript": "5",
